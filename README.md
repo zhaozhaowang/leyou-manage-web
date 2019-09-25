@@ -1,8 +1,6 @@
-# leyou-manage-web 这是一个Vue项目
+# leyou-manage-web是Vue项目
 
-> #### A Vue.js project
-
-## Build Setup
+## 1.Build Setup
 
 ``` bash
 # install dependencies 通过命令安装依赖的jar
@@ -20,9 +18,7 @@ npm run build --report
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
-
-
-## 项目结构说明
+## 2.项目结构
 ```properties
 build: 目录下面放的都是webpack的配置文件
 
@@ -33,35 +29,36 @@ dist: 目录下面放的都是Vue项目打包后的目录
 node_modules: Vue的相关jar都在这里
 ```
 
-
+## 3.项目说明
 
 ```properties
-*Vue项目一般要关注package.json这个文件,这里面定义了该项目所用到的jar,类似于pom.xml文件.
+Vue项目一般要关注package.json这个文件,这里面定义了该项目所用到的jar,类似于pom.xml文件.
 1.这是Vue项目,是后台系统的前端页面.
-2.拿到项目后,需要下载项目的依赖jar,npm install.
-3.然后通过npm run dev命令运行项目.
-
-
-5.修改host文件里面的域名和端口映射关系,以后通过域名来进行访问项目.
-
-
-
-6.nginx?什么是nginx?nginx属于反向代理
-正向代理:代理用户
-反向代理:代理服务器
-
-zuul和nginx有什么区别?
-zuul是在程序内部进行负载均衡
-nginx是在程序外部进行的负载均衡
+2.拿到项目后,需要下载项目的依赖jar,执行命令:npm install.
+3.然后通过:npm run dev 命令运行项目.
 ```
 
-### 7.MAC下安装nginx教程
+## 4.修改host文件里面的域名和端口映射关系,以后通过域名来进行访问项目.
+
+## 5.什么是nginx?nginx属于反向代理
+
+```properties
+正向代理:代理用户
+反向代理:代理服务器
+```
+
+## 6.zuul nginx区别?
+
+	zuul和nginx有什么区别?
+	zuul是在程序内部进行负载均衡
+	nginx是在程序外部进行的负载均衡
+## 7.MAC下安装nginx教程
 
 ```properties
 https://www.cnblogs.com/meng1314-shuai/p/8335140.html
 ```
 
-### 8.修改jenkins端口
+## 8.修改jenkins端口
 
 ```properties
 nginx的默认端口是80,可以省略不写,但是会和已经安装好的jenkins冲突,所以需要修改Jenkins的port.
@@ -72,7 +69,7 @@ nginx的默认端口是80,可以省略不写,但是会和已经安装好的jenki
 停止jenkins：sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist
 ```
 
-### 9.MAC上配置nginx(version:1.17.3_1)并且启动
+## 9.MAC上配置nginx(version:1.17.3_1)并且启动
 
 ```properties
 1进入安装路径   cd /usr/local/Cellar/nginx/1.17.3_1/bin
@@ -90,7 +87,7 @@ nginx的默认端口是80,可以省略不写,但是会和已经安装好的jenki
 快速停止   sudo kill -TERM 主进程号
 ```
 
-### 10.MAC上nginx是否启动成功
+## 10.MAC上nginx是否启动成功
 
 ```properties
 sudo lsof -i :80
@@ -99,7 +96,7 @@ nginx   97824 mobiletestingdevice    6u  IPv4 0xc1c4e861af9f9063      0t0  TCP *
 nginx   97825 mobiletestingdevice    6u  IPv4 0xc1c4e861af9f9063      0t0  TCP *:http-alt (LISTEN)
 ```
 
-### 11.MAC上编辑nginx的配置文件
+## 11.MAC上编辑nginx的配置文件
 
 ```properties
  cat /usr/local/etc/nginx/nginx.conf
