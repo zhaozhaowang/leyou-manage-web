@@ -103,6 +103,7 @@ nginx   97825 mobiletestingdevice    6u  IPv4 0xc1c4e861af9f9063      0t0  TCP *
 ```
 
 ```properties
+
 #user  nobody;
 
 #Nginx运行时使用的CPU核数
@@ -142,6 +143,18 @@ http {
 
 
 
+
+    server {
+        listen       80;
+        server_name  api.leyou.com;
+        charset utf-8;
+        location / {
+			proxy_pass http://127.0.0.1:10010;
+			proxy_connect_timeout 600;
+			proxy_read_timeout 600;
+        }
+    }
+
     #自定义端口和映射本地网络路径
     server {
         #监听端口
@@ -160,11 +173,11 @@ http {
             #设置默认网页
             #index  index.html index.htm;
         #}
-				
-				#这是我们自己的配置
+
+        #这是我们自己的配置
         #/表示所有的请求都会走的路径
         location / {
-        		#代理地址
+            #代理地址
             proxy_pass http://127.0.0.1:9001;
             proxy_connect_timeout 6000;
             proxy_read_timeout 600;
