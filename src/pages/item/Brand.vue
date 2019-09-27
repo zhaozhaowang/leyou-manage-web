@@ -35,6 +35,7 @@
         </td>
       </template>
     </v-data-table>
+
     <!--弹出的对话框-->
     <v-dialog max-width="500" v-model="show" persistent scrollable>
       <v-card>
@@ -51,6 +52,7 @@
         </v-card-text>
       </v-card>
     </v-dialog>
+
   </v-card>
 </template>
 
@@ -127,7 +129,7 @@
         // 根据品牌信息查询商品分类
         this.$http.get("/item/category/bid/" + oldBrand.id)
           .then(({data}) => {
-            // 修改标记
+            // 修改标记 修改和新增是同一个方法
             this.isEdit = true;
             // 控制弹窗可见：
             this.show = true;

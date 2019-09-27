@@ -12,17 +12,20 @@
   </v-card>
 </template>
 
+
 <script>
-  import {treeData} from "../../mockDB";
+  // import {treeData} from "../../mockDB";
 
   export default {
-    name: "category",
+    // name: "category",
     data() {
       return {
-        isEdit:true,
-        treeData
+        // 这个字段控制是否可以修改分类,默认是可以修改的
+        isEdit:true
+        // treeData
       }
     },
+
     methods: {
       handleAdd(node) {
         console.log("add .... ");

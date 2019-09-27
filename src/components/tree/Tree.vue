@@ -1,5 +1,8 @@
+
+
 <template>
   <v-list class="pt-0 pb-0" dense>
+    <!--在这里for循环遍历db模型-->
     <TreeItem
       class="item" :model="model" v-for="(model, index) in db" :key="index"
       :url="url"
@@ -12,6 +15,8 @@
     />
   </v-list>
 </template>
+
+
 
 <script>
   import TreeItem from './TreeItem';
@@ -40,15 +45,18 @@
     components: {
       TreeItem
     },
+
     created() {
-      if(this.treeData && this.treeData.length > 0){
-        this.db = this.treeData;
-        return;
-      }
+      // if(this.treeData && this.treeData.length > 0){
+      //   this.db = this.treeData;
+      //   return;
+      // }
       this.getData();
     },
+
     methods: {
       getData() {
+        // 这个pid: 0是点击分类管理默认携带的参数值,默认是0,表示获取所有的分类列表
         this.$http.get(this.url, {params: {pid: 0}}).then(resp => {
           this.db = resp.data;
           this.db.forEach(n => n['path'] = [n.name])

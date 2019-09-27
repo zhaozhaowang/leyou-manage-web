@@ -2,10 +2,18 @@
   <div>
     <v-list-tile
       @click="toggle" class="level1 py-0 my-0" :class="{'selected':isSelected}">
+
       <v-list-tile-avatar class="px-1">
+
+
+        <!--如果是父级模型的话,那么图标就应该是folder,意味着可以打开-->
         <v-icon v-if="model.isParent">{{open ? 'folder_open' : 'folder'}}</v-icon>
+
+
+        <!--不是父级模型,图标是file,不能向下展开-->
         <v-icon v-if="!model.isParent">insert_drive_file</v-icon>
       </v-list-tile-avatar>
+
       <v-list-tile-content>
         <v-list-tile-title v-show="!beginEdit">
           <span >{{model.name}}</span>
@@ -49,6 +57,11 @@
     </v-list>
   </div>
 </template>
+
+
+
+
+
 
 <script>
   import Vue from 'vue'

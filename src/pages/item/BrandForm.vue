@@ -1,13 +1,15 @@
 <template>
+
   <v-form v-model="valid" ref="myBrandForm">
     <v-text-field v-model="brand.name" label="请输入品牌名称" required :rules="nameRules"/>
     <v-text-field v-model="brand.letter" label="请输入品牌首字母" required :rules="letterRules"/>
+
     <v-cascader
       url="/item/category/list"
-      multiple
-      required
+      multiple required
       v-model="brand.categories"
       label="请选择商品分类"/>
+
     <v-layout row>
       <v-flex xs3>
         <span style="font-size: 16px; color: #444">品牌LOGO：</span>
@@ -18,13 +20,19 @@
         />
       </v-flex>
     </v-layout>
+
     <v-layout class="my-4" row>
       <v-spacer/>
       <v-btn @click="submit" color="primary">提交</v-btn>
       <v-btn @click="clear">重置</v-btn>
     </v-layout>
+
   </v-form>
+
 </template>
+
+
+
 
 <script>
   export default {

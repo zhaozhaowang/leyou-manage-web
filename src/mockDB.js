@@ -1,8 +1,8 @@
 
-  // 分类
+  // 分类  这是本地测试的mock数据
  const treeData = [{
     "id": 74,
-    "name": "手机",
+    "name": "我是手机",
     "parentId": 0,
     "isParent": true,
     "sort": 2,
@@ -1371,4 +1371,5 @@ const brandData = [{"id": 1115, "name": "HTC", "image": "", "letter": "H", "cate
     "params": [{"k": "电池容量（mAh）", "searchable": true, "global": true, "options": [], "numerical": true, "unit": "mAh"}]
   }];
 
-export {treeData, phoneSpec, brandData, goodsData}
+// 禁止使用本地mock的数据,要用请求从数据库获取
+// export {treeData, phoneSpec, brandData, goodsData}
