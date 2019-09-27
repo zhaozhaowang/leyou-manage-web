@@ -17,6 +17,7 @@
       <v-list-tile-content>
         <v-list-tile-title v-show="!beginEdit">
           <span >{{model.name}}</span>
+          <span >{{model.id}}</span>
         </v-list-tile-title>
         <input v-show="beginEdit" @click.stop="" :ref="model.id" v-model="model.name"
                @blur="afterEdit" @keydown.enter="afterEdit"/>
