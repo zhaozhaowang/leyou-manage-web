@@ -1,6 +1,7 @@
 <template>
 
   <v-form v-model="valid" ref="myBrandForm">
+
     <v-text-field v-model="brand.name" label="请输入品牌名称" required :rules="nameRules"/>
     <v-text-field v-model="brand.letter" label="请输入品牌首字母" required :rules="letterRules"/>
 
@@ -69,8 +70,9 @@
       submit() {
         // 表单校验
         if (this.$refs.myBrandForm.validate()) {
-          // 定义一个请求参数对象，通过解构表达式来获取brand中的属性
+          // 定义一个请求参数对象，通过解构表达式来获取brand中的属性{name,letter,image,categories}
           const {categories, letter, ...params} = this.brand;
+
           // 数据库中只要保存分类的id即可，因此我们对categories的值进行处理,只保留id，并转为字符串
           params.cids = categories.map(c => c.id).join(",");
           // 将字母都处理为大写

@@ -84,6 +84,7 @@
     mounted() { // 渲染后执行
       // 查询数据
       this.getDataFromServer();
+      console.log("mounted");
     },
     watch: {
       pagination: { // 监视pagination属性的变化
@@ -91,11 +92,13 @@
         handler() {
           // 变化后的回调函数，这里我们再次调用getDataFromServer即可
           this.getDataFromServer();
+          console.log("watch");
         }
       },
       search: { // 监视搜索字段
         handler() {
           this.getDataFromServer();
+          console.log("search");
         }
       }
     },
@@ -118,7 +121,7 @@
         })
       },
       addBrand() {
-        // 修改标记
+        // 区分是修改还是新增,新增是false 编辑是true
         this.isEdit = false;
         // 控制弹窗可见：
         this.show = true;
