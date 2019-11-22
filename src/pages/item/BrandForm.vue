@@ -83,7 +83,8 @@
             method: this.isEdit ? 'put' : 'post',
             url: '/item/brand',
             data: this.$qs.stringify(params)
-          }).then(() => {
+            // data: params,
+        }).then(() => {
             // 关闭窗口
             this.$emit("close");
             this.$message.success("保存成功！");
